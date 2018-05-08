@@ -1,6 +1,12 @@
 development:
   archivist:
     - archivist1@example.com
+  admin:
+    - hpottinger@library.ucla.edu
+    - mmatney@library.ucla.edu
+    - dgcliff@northeastern.edu
+    - jennifer@curationexperts.com
+
 
 test:
   archivist:
@@ -27,3 +33,9 @@ production:
     - jen@curationexperts.com
     - jamie@curationexperts.com
     - val@curationexperts.com
+    - hpottinger@library.ucla.edu
+    - mmatney@library.ucla.edu
+    - dgcliff@northeastern.edu
+    - jennifer@curationexperts.com
+
+
