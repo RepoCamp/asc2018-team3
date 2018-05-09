@@ -51,7 +51,9 @@ namespace :deploy do
   task :load_workflows do
     on roles(:app) do
       with rails_env: :production do
-        execute :rake, "load_workflows"
+        within release_path do
+          execute :rake, "load_workflows"
+        end
       end
     end
   end
