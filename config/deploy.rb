@@ -47,4 +47,16 @@ namespace :sidekiq do
  end
 end
 
-after "deploy:migrating", "load_workflows"
+namespace :deploy do
+  task :load_workflows do
+    on roles(:app) do
+      with rails_env: :production do
+        within release_path do
+          execute :rake, "load_workflows"
+        end
+      end
+    end
+  end
+end
+
+after "deploy:migrating", "deploy:load_workflows"
