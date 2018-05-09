@@ -4,7 +4,7 @@ require 'rails_helper'
 include Warden::Test::Helpers
 
 # NOTE: If you generated more than one work, you have to set "js: true"
-RSpec.feature 'Create a Work', js: false do
+RSpec.feature 'Work Creation', js: false do
   context 'a logged in user' do
     let(:user_attributes) do
       { email: 'test@example.com' }
@@ -30,7 +30,7 @@ RSpec.feature 'Create a Work', js: false do
       login_as user
     end
 
-    scenario do
+    scenario 'Create one Work' do
       visit '/dashboard'
       click_link "Works"
       click_link "Add new work"
