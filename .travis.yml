@@ -8,13 +8,9 @@ jdk:
   - oraclejdk8
 rvm:
   - 2.4.2
-before_install:
-  - gem update --system
-  - gem install bundler
+before_script:
   - bundle exec rake db:create
 script:
   - bundle exec rake ci
 services:
   - redis-server
-notifications:
-  email: false
