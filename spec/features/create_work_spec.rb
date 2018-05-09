@@ -65,5 +65,17 @@ RSpec.feature 'Create a Work', js: false do
       expect(page).to have_content('My Test Work')
       expect(page).to have_content "Your files are being processed by Hyrax in the background."
     end
+
+    scenario 'In write mode, users can create content', js: false do
+      allow(Flipflop).to receive(:read_only?).and_return(false)
+      visit '/concern/works/new'
+      expect(page).not_to have_content('This system is in read-only mode for maintenance.')
+    end
+
+    scenario 'In read-only mode, no one can create content', js: false do
+      allow(Flipflop).to receive(:read_only?).and_return(true)
+      visit '/concern/works/new'
+      expect(page).to have_content('This system is in read-only mode for maintenance.')
+    end
   end
 end
