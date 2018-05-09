@@ -46,3 +46,5 @@ namespace :sidekiq do
    end
  end
 end
+
+after "deploy:migrating", "load_workflows"
